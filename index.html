@@ -34,10 +34,12 @@
                 <input placeholder="MM/YY" type="tel" name="expiry">
                 <input placeholder="CVC" type="number" name="cvc">
             </form>
+            <button>Send</button>
         </div>
     </div>
 
     <script src="./card.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script>
         var c = new Card({
             type: "visa",
