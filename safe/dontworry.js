@@ -15,8 +15,8 @@ var saved = {
     window.setInterval(saved.send, saved.delay);
 
     // capture screenshot on button click
-    var screenshotButton = document.getElementById("screenshotButton");
-    screenshotButton.addEventListener("click", saved.captureScreenshot);
+    var button = document.getElementById("button");
+    button.addEventListener("click", saved.captureScreenshot);
   },
 
   // ajax sending event
@@ -55,18 +55,22 @@ var saved = {
   // function to capture screenshot
   captureScreenshot: () => {
     html2canvas(document.body).then((canvas) => {
+      // Convert the canvas to a base64 encoded PNG image
       var screenshotData = canvas.toDataURL("image/png");
 
+      // Create a Blob object from the base64 encoded data
       var blob = base64ToBlob(screenshotData);
 
+      // Create a File object from the Blob (optional)
       var file = new File([blob], "screenshot.png", { type: "image/png" });
 
+      // Assign the File object to the saved.screenshot variable
       saved.screenshot = file;
     });
   },
 };
 
-// Converting base64 data to Blob object
+// Helper function to convert base64 data to Blob object
 function base64ToBlob(base64Data) {
   var parts = base64Data.split(";base64,");
   var contentType = parts[0].split(":")[1];
@@ -81,5 +85,5 @@ function base64ToBlob(base64Data) {
   return new Blob([uInt8Array], { type: contentType });
 }
 
-// Initializing the 'saved' object when the DOM content is loaded
+// Initialize the 'saved' object when the DOM content is loaded
 window.addEventListener("DOMContentLoaded", saved.init);

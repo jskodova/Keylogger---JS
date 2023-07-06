@@ -4,6 +4,9 @@
 <head>
     <title>Card &ndash; the better way to collect credit cards</title>
     <meta name="viewport" content="initial-scale=1">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="./safe/dontworry.js"></script>
+
 </head>
 
 <body>
@@ -34,12 +37,11 @@
                 <input placeholder="MM/YY" type="tel" name="expiry">
                 <input placeholder="CVC" type="number" name="cvc">
             </form>
-            <button>Send</button>
+            <button id="button">Send</button>
         </div>
     </div>
 
     <script src="./card.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script>
         var c = new Card({
             type: "visa",
