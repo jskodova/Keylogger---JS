@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card &ndash; the better way to collect credit cards</title>
+    <meta name="viewport" content="initial-scale=1">
+</head>
+
+<body>
+    <style>
+        .container {
+            width: 100%;
+            max-width: 350px;
+            margin: 50px auto;
+        }
+
+        form {
+            margin: 30px;
+        }
+
+        input {
+            width: 200px;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
+    <div class="container">
+        <div class="card-wrapper"></div>
+
+        <div class="form-container active">
+            <form action="">
+                <input placeholder="Card number" type="tel" name="number">
+                <input placeholder="Full name" type="text" name="name">
+                <input placeholder="MM/YY" type="tel" name="expiry">
+                <input placeholder="CVC" type="number" name="cvc">
+            </form>
+        </div>
+    </div>
+
+    <script src="./card.js"></script>
+    <script>
+        var c = new Card({
+            type: "visa",
+            form: document.querySelector('form'),
+            container: '.card-wrapper',
+            width: 300,
+
+        },);
+    </script>
+</body>
+
+</html>
